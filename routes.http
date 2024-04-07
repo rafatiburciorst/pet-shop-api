@@ -1,0 +1,87 @@
+@host = http://localhost:3000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbHVvY2N4ajIwMDAxd3E2cDNwbTJxMmw5IiwiaWF0IjoxNzEyNDk4MjM2fQ.e4UDRD1sjpo9K9FbizIdbV22rj49zgVpDQsaCXoNO80
+
+###
+#LIST ALL PETS
+GET {{host}}/pets
+Content-Type: application/json
+
+###
+#LIST ALL PETS
+GET {{host}}/pets/sorocaba
+Content-Type: application/json
+
+###
+POST {{host}}/pets
+Content-Type: application/json
+
+{
+    "name": "Rafael",
+    "city": "Sorocaba",
+    "cor": "Branca",
+    "age": "30",
+    "organizationId": "cluoccxj20001wq6p3pm2q2l9",
+    "typeId": "cluodhm250000o9jvcho8rbko"
+}
+
+###
+POST {{host}}/pets/images
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="title"
+
+hello
+----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="1.jpg"
+Content-Type: image/jpg
+< ./1.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+GET {{host}}/pets/images?page=2
+Content-Type: application/json
+
+
+###
+POST {{host}}/organizations
+Content-Type: application/json
+
+{
+    "name": "rafael",
+    "email": "rafael.tiburcio@live.com",
+    "addressId": "cluobsv1h0000p6ve1obdznqp",
+    "password": "lkjkjkjljkl"
+}
+
+###
+POST {{host}}/addresses
+Content-Type: application/json
+
+{
+    "city": "São Paulo"
+}
+
+###
+GET {{host}}/addresses
+Content-Type: application/json
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbHVvY2N4ajIwMDAxd3E2cDNwbTJxMmw5IiwibmFtZSI6InJhZmFlbCIsImlhdCI6MTcxMjQ1NDU1NH0.vkwoE5G6Uy5dz_0wYvqPPi1JOyg3SsKLH1roD8IoxuA"
+
+###
+GET {{host}}/organizations
+Content-Type: application/json
+
+
+###
+POST {{host}}/sign-in
+Content-Type: application/json
+
+{
+    "email": "rafael.tiburcio@live.com",
+    "password": "lkjkjkjljkl"
+}
+
+###
+GET  {{host}}/organizations/me
+Content-Type: application/json
+Authorization: Bearer {{token}}
